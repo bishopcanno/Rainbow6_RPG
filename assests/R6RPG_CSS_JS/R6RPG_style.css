@@ -1,0 +1,10 @@
+.container{
+    font-family: 'Russo One', sans-serif;
+}
+#lordAndSavior{
+    font-family: 'Stalinist One', cursive;
+}
+#rb6bgImg{
+    z-index: -1;
+    opacity: .7;
+}
