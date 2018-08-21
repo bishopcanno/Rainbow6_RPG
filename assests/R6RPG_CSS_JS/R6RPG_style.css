@@ -1,10 +1,52 @@
+/* sets majority of the font style here and sets everthing to be over top the background img */
 .container{
     font-family: 'Russo One', sans-serif;
+    z-index: 10;
+/* set up for god/meme mode style */
 }
-#lordAndSavior{
+/* sets bg color for op images */
+.opButtons{
+    background-color: darkslategrey;
+}
+/* sets font color for attack ops */
+.attackOpsButtons{
+    color: orange;
+}
+/* same as above but for defender ops */
+.defenderOpsButtons{
+    color: blue;
+}
+/* sets img size for op buttons */
+.opButtonsImgs{
+    height: 100px;
+    width: 100px;
+}
+/* attemps to hide the buttons from the viewer until they select an op */
+.hiddenOpButtons{
+    background-color: darkslategrey;
+    opacity: 0;
+}
+/* positioning for the attack and reset buttons */
+#attackButton{
+    position: relative;
+    top: 100px;
+}
+#resetButton{
+    position: relative;
+    top: 100px;
+}
+/* sets font for god mode */
+#godModeHeader{
     font-family: 'Stalinist One', cursive;
 }
-#rb6bgImg{
-    z-index: -1;
-    opacity: .7;
+/* sets styling for god/meme mode button */
+#memeButton{
+    font-family: 'Stalinist One', cursive;
+    color: crimson;
+    background-color: darkslategrey;
+}
+/* sets size for tachanka img */
+#godImg{
+    height: 100px;
+    width: 100px;
 }

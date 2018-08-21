@@ -5,21 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>EricBs_RPG</title>
+    <!-- style links here -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Russo+One|Stalinist+One" rel="stylesheet">
-    
+    <link rel="stylesheet" href="./assests/R6RPG_CSS_JS/R6RPG_style.css">
 </head>
+<!-- background image, container and title here -->
+<body background="./assests/R6RPG_images/truR6BG.png">
+    <div class="container text-danger">
+        <div class="row text-lg-right">
+            <div class="col-sm-10">
+                <h1>Rainbow 6 Siege RPG</h1>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+<!-- buttons for attack and defender ops here -->
+        <div class="row" id="opsButtonRow">
+            <div class="col-sm-1">
+                <button class="opButtons text-sm-left attackOpsButtons" id="ashButton">Ash
+                    <img class="opButtonsImgs" src="./assests/R6RPG_images/ash.jpg" alt="Aimgirl">
+                </button>
+            </div>
 
-<body>
-    <img id="rb6bgImg" src="./assests/SWRPG_images/truR6BG.png">
-    <div class="container">
-        
+            <div class="col-sm-1">
+                <button class="opButtons text-sm-left attackOpsButtons" id="thermButton">Thermite
+                    <img class="opButtonsImgs" src="./assests/R6RPG_images/thermite.png" alt="RBFH">
+                </button>
+            </div>
+
+            <div class="col-sm-1">
+                <button class="opButtons text-sm-left attackOpsButtons" id="dokkButton">Dokkaebi
+                    <img class="opButtonsImgs" src="./assests/R6RPG_images/Dokka_bea.png" alt="Ring Ring">
+                </button>
+            </div>
+
+            <div class="col-sm-1">
+                <button class="opButtons text-sm-left defenderOpsButtons" id="smokeButton">Smoke
+                    <img class="opButtonsImgs" src="./assests/R6RPG_images/vape_lord.jpg" alt="Vapelord">
+                </button>
+            </div>
+
+            <div class="col-sm-1">
+                <button class="opButtons text-sm-left defenderOpsButtons" id="jagerButton">Jäger
+                    <img class="opButtonsImgs" src="./assests/R6RPG_images/Jager.png" alt="Splodie Sniper">
+                </button>
+            </div>
+
+            <div class="col-sm-1">
+                <button class="opButtons text-sm-left defenderOpsButtons" id="rookButton">Rook
+                    <img class="opButtonsImgs" src="./assests/R6RPG_images/destroyer_of_buffets.jpg" alt="Buffet Destroyer">
+                </button>
+            </div>
+        </div>
+        <br/>
+<!-- the battle arena and attack/reset buttons here -->
+        <div class="row">
+            <div class="col-sm-4">
+                <h2>Your Character</h2>
+                <span id="playerCharacter"></span>
+            </div>
+
+            <div class="col-sm-2">
+                <button class="bg-warning" id="attackButton">Attack</button>
+            </div>
+
+            <div class="col-sm-2">
+                <button class="bg-warning" id="resetButton">Reset</button>
+            </div>
+
+            <div class="col-sm-4">
+                <h2>Opponent</h2>
+                <span id="computerCharacter"></span>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+<!-- instruction header after a character has been chosen -->
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Enemies Avaliable to Attack</h2>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+<!-- will display enemies available for attack, should only allow attackers to choose defenders and vice versa -->
+        <div class="row">
+            <div class="col-sm-3">
+                <button class="hiddenOpButtons" id="hiddenOpponentButtonOne"></button>
+            </div>
+
+            <div class="col-sm-3">
+                <button class="hiddenOpButtons" id="hiddenOpponentButtonTwo"></button>
+            </div>
+
+            <div class="col-sm-3">
+                <button class="hiddenOpButtons" id="hiddenOpponentButtonThree"></button>
+            </div>
+        </div>
+        <br/>
+<!-- god/meme mode section -->
+        <div class="row" id="godModeRow">
+            <div class="col-sm-8">
+                <h3 id="godModeHeader">To Enter God Mode Press:</h1>
+            </div>
+
+            <div class="col-sm-1">
+                <button class="text-sm-left" id="memeButton">Lord
+                    <img id="godImg" src="./assests/R6RPG_images/god_Himself.png" alt="Our Lord & Savior">
+                </button>
+            </div>
+        </div>
     </div>
-    
-    
-    
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
+    <!-- script links here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assests/R6RPG_CSS_JS/R6RPG_script.js"></script>  
 </body>
 </html>
