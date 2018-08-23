@@ -1,50 +1,62 @@
-// various ops objects MAYBE USE THE ARGUMENT PART OF THE FUNCTION TO PASS THE OBJECT INTO IT
+// op objects that will be passed as arguments through the attackbutton into the attack function
 var ash = {
-    ashHp: 95,
-    ashAtk: 9,
-    ashCntAtk: 6,
+    name: "Ash",
+    hp: 95,
+    atk: 9,
+    cntAtk: 6,
 };
 
 var thermite = {
-    thermHp: 120,
-    thermAtk: 6,
-    thermCntAtk: 6,
+    name: "Thermite",
+    hp: 120,
+    atk: 6,
+    cntAtk: 6,
 };
 
 var dokkaebi = {
-    dokkHp: 115,
-    dokkAtk: 7,
-    dokkCntAtk: 4,
+    name: "Dokkaebi",
+    hp: 115,
+    atk: 7,
+    cntAtk: 4,
 };
 
 var jager = {
-    jagerHp: 100,
-    jagerAtk: 8,
-    jagerCntAtk: 6,
+    name: "Jäger",
+    hp: 100,
+    atk: 8,
+    cnttAtk: 6,
 };
 
 var smoke = {
-    smokeHp: 110,
-    smokeAtk: 6,
-    smokeCntAtk: 9,
+    name: "Smoke",
+    hp: 110,
+    atk: 6,
+    cntAtk: 9,
 };
 
 var rook = {
-    rookHp: 140,
-    rookAtk: 6,
-    rookCntAtk: 6,
+    name: "Rook",
+    hp: 140,
+    atk: 6,
+    cntAtk: 6,
 };
 
 var tachanka = {
-    lordHp: 1000,
-    lordAtk: 25,
+    name: "Tachanka",
+    hp: 1000,
+    atk: 25,
 };
+// used by the attack function to store and iterate the attack of the players op
+var attackStorage = 0;
+var attackTemp = 0;
+// used by the attackbutton as a place holder for the op objects and then will be used as an arguement to pass
+// into the attack function
+var playerOp = "";
+var opponentOp = "";
 // informs the attack button whether or not the ops have been choosen
-// attack total counter is here
-// and a counter of kills so the game knows when the player has won
 var playerChosen = false;
 var opostionChosen = false;
-var attackTotalCounter = 0;
+// a counter of kills so the game knows when the player has won
 var killCounter = 0;
 // because i call the images to different html sections through out the app i thought it would be easier to store them as strings
 // in an array and then just call the index that i needed
@@ -56,46 +68,46 @@ var imgArray = ["<img src='./assests/R6RPG_images/ash.jpg' heigth = 150px width 
     "<img src='./assests/R6RPG_images/destroyer_of_buffets.jpg' height = 150px width = 150px>",
     "<img src='./assests/R6RPG_images/god_Himself.png' height = 150px width = 150px>"]
 // each character button will push itself into the chosen character of the arena and call the correct 3 opposing operators for 
-// the user to choose who to challenge in the arena/ should i then grab the player object?
+// the user to choose who to challenge in the arena. also sets playerOp variable to the correct object to be passed as an argument
 $("#ashButton").click(function(){
     playerChosen = true;
     $("#playerCharacter").html(imgArray[0]);
-    var playerOp = ash;
+    playerOp = ash;
     attackOpChosen();
 });
 
 $("#thermButton").click(function(){
     playerChosen = true;
     $("#playerCharacter").html(imgArray[1]);
-    var playerOp = thermite;
+    playerOp = thermite;
     attackOpChosen();
 });
 
 $("#dokkButton").click(function(){
     playerChosen = true;
     $("#playerCharacter").html(imgArray[2]);
-    var playerOp = dokkaebi
+    playerOp = dokkaebi
     attackOpChosen();
 });
 
 $("#smokeButton").click(function(){
     playerChosen = true;
     $("#playerCharacter").html(imgArray[3]);
-    var playerOp = smoke;
+    playerOp = smoke;
     defenderOpChosen();
 });
 
 $("#jagerButton").click(function(){
     playerChosen = true;
     $("#playerCharacter").html(imgArray[4]);
-    var playerOp = jager;
+    playerOp = jager;
     defenderOpChosen();
 });
 
 $("#rookButton").click(function(){
     playerChosen = true;
     $("#playerCharacter").html(imgArray[5]);
-    var playerOp = rook;
+    playerOp = rook;
     defenderOpChosen();
 });
 
@@ -103,10 +115,10 @@ $("#memeButton").click(function(){
     alert("You have choosen our lord and savior, Tachanka");
     playerChosen = true;
     $("#playerCharacter").html(imgArray[6]);
-    var playerOp = tachanka;
+    playerOp = tachanka;
     defenderOpChosen();
 });
-// will call if you choose a orange attacker as your character
+// will call if you choose an orange attacker as your character
 // will place the images of defender operators in the hidden buttons and returns its opacity to visible
 function attackOpChosen(){
     $("#opsButtonRow").css("opacity", "0");
@@ -122,27 +134,26 @@ function attackOpChosen(){
             opostionChosen = true;
             $("#computerCharacter").html(imgArray[3]);
             $("#hiddenOpponentButtonOne").css("opacity", "0");
-            var opponentOp = smoke;
+            opponentOp = smoke;
         });
 
         $("#hiddenOpponentButtonTwo").click(function(){
             opostionChosen = true;
             $("#computerCharacter").html(imgArray[4]);
             $("#hiddenOpponentButtonTwo").css("opacity", "0");
-            var opponentOp = jager;
+            opponentOp = jager;
         });
 
         $("#hiddenOpponentButtonThree").click(function(){
             opostionChosen = true;
             $("#computerCharacter").html(imgArray[5]);
             $("#hiddenOpponentButtonThree").css("opacity", "0");
-            var opponentOp = rook;
+            opponentOp = rook;
         });
     } else if (opostionChosen) {
         alert("You must fight your choosen opponent first!");
     };
 };
-// maybe have something like a defender/attackopchosen = true; and then inform form there to DRY out the code?
 // will call if you choose a blue defender as your character
 // will place the images of attack operators in the hidden buttons and returns its opacity to visible
 function defenderOpChosen(){
@@ -159,21 +170,21 @@ function defenderOpChosen(){
             opostionChosen = true;
             $("#computerCharacter").html(imgArray[0]);
             $("#hiddenOpponentButtonOne").css("opacity", "0");
-            var opponentOp = ash;
+            opponentOp = ash;
         });
 
         $("#hiddenOpponentButtonTwo").click(function(){
             opostionChosen = true;
             $("#computerCharacter").html(imgArray[1]);
             $("#hiddenOpponentButtonTwo").css("opacity", "0");
-            var opponentOp = thermite;
+            opponentOp = thermite;
         });
 
         $("#hiddenOpponentButtonThree").click(function(){
             opostionChosen = true;
             $("#computerCharacter").html(imgArray[2]);
             $("#hiddenOpponentButtonThree").css("opacity", "0");
-            var opponentOp = dokkaebi;
+            opponentOp = dokkaebi;
         });
     } else if (opostionChosen) {
         alert("You must fight your choosen opponent first!");
@@ -196,9 +207,9 @@ function resetFunk(){
 };
 // attack button instrucitons here, will check for the user to have choosen a operator and an opponent
 $("#attackButton").click(function(){
+    
     if (playerChosen && opostionChosen){
-        console.log("Fight Fight Fight");
-        attack();
+        attack(playerOp, opponentOp);
         //should just call the attack funtion
     } else if(!playerChosen){
         alert("You must choose an Operator first!!!");
@@ -206,16 +217,33 @@ $("#attackButton").click(function(){
         alert("You must pick your opponent!!!");
     }
 });
-// attack funtion that will be passed into each object or integrated into the attack button...
-// maybe when the op is choosen as a character or an opponent you should grab the object then?
-function attack(){
-    playerOp.hp
-    console.log(playerOp);
-    console.log(playerOp.hp);
-//     if (hp > 0){
-        
-//     } else if (hp <= 0){
-//         resetFunk();
-//     }
+// attack funtion that will be passed each object by the attack button when they are chosen by the player
+function attack(playerOpHolder, compOpHolder){
+    // initial if checks to see if the player has already won the game, may be more efficent to make winloss function
+    if (killCounter === 3){
+        alert("You got the Ace!!!");
+        resetFunk();
+    // the brains of the attack funtion, stores the base playerop atk, then iterates each time the player attacks
+    // removes a portion of the opponent op's hp as well as the playerop's hp
+    } else if (playerOpHolder.hp > 0 && compOpHolder.hp > 0){
+        attackStorage = playerOpHolder.atk;
+        attackTemp = attackStorage + attackTemp;
+        compOpHolder.hp = compOpHolder.hp - attackTemp;
+        playerOpHolder.hp = playerOpHolder.hp - compOpHolder.cntAtk;
+        console.log(playerOpHolder.hp);
+    // checks to see if the player killed thier opponent 
+    } else if (compOpHolder.hp <= 0){
+        killCounter++;
+        alert("You've fragged " + compOpHolder.name);
+        // supposed to check to see if the player has killed all the opponents and if not tell them to select another
+        // isn't working, maybe it should be apart of the aforementioned winloss function?
+        if (killCounter !== 3){
+            alert("Find your next target.");
+        };
+    // checks to see if the players op is alive, if not resets the game    
+    } else if (playerOpHolder.hp <= 0){
+        alert("You've been fragged!!!!");
+        resetFunk();
+    };
 };
 
