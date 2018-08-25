@@ -206,6 +206,7 @@ function resetFunk(){
     $(".hiddenOpButtons").css("opacity", "0");
     playerOp = "";
     opponentOp = "";
+    killCounter = 0;
 };
 // attack button instrucitons here, will check for the user to have choosen a operator and an opponent
 $("#attackButton").click(function(){
