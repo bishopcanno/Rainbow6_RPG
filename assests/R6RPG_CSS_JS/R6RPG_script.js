@@ -24,7 +24,7 @@ var jager = {
     name: "Jäger",
     hp: 100,
     atk: 8,
-    cnttAtk: 6,
+    cntAtk: 6,
 };
 
 var smoke = {
@@ -204,6 +204,8 @@ function resetFunk(){
     $("#opponentChoices").html("");
     $("#computerCharacter").html("");
     $(".hiddenOpButtons").css("opacity", "0");
+    playerOp = "";
+    opponentOp = "";
 };
 // attack button instrucitons here, will check for the user to have choosen a operator and an opponent
 $("#attackButton").click(function(){
@@ -230,7 +232,9 @@ function attack(playerOpHolder, compOpHolder){
         attackTemp = attackStorage + attackTemp;
         compOpHolder.hp = compOpHolder.hp - attackTemp;
         playerOpHolder.hp = playerOpHolder.hp - compOpHolder.cntAtk;
-        console.log(playerOpHolder.hp);
+        alert("You hit " + compOpHolder.name + " for " + attackTemp);
+        alert(compOpHolder.name + " now has " + compOpHolder.hp + " HP")
+        alert(playerOpHolder.name + " now has " + playerOpHolder.hp + " HP");
     // checks to see if the player killed thier opponent 
     } else if (compOpHolder.hp <= 0){
         killCounter++;
